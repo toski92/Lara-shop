@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container mx-auto">
-        <div class="bg-white">
-            <div class="max-w-2xl px-4 py-16 mx-auto sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div class="bg-white max-w-2xl px-4 py-4 mx-auto sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            <div>
                 @if (!empty($products))
                     <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
 
@@ -46,6 +46,9 @@
                 @else
                 <div>No Products are Available</div>
                 @endif
+            </div>
+            <div class="pt-10">
+            {{ $products->links() }}
             </div>
         </div>
     </div>
