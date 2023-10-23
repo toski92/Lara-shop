@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
-            $table->text('description');
-            $table->text('excerpt');
+            $table->text('description')->nullable();
+            $table->text('excerpt')->nullable();
             $table->string('feature_image')->nullable();
-            $table->string('regular_price');
-            $table->string('sale_price');
-            $table->string('quantity');
+            $table->string('regular_price')->nullable();
+            $table->string('sale_price')->nullable();
+            $table->string('quantity')->nullable();
             $table->timestamps();
         });
     }
