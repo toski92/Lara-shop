@@ -12,7 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('product');
+        $products = Product::all();
+        return view('product', ['products'=>$products]);
     }
 
     /**
@@ -37,7 +38,7 @@ class ProductController extends Controller
             'title'=>$request->title,
             'description'=>$request->description,
             'excerpt'=>$request->excerpt,
-            'feature_image'=>$request->file('feature_image')->store(),
+            'feature_image'=>$request->file('feature_image')->store('public'),
             'regular_price'=>$request->regular_price,
             'sale_price'=>$request->sale_price,
             'quantity'=>$request->quantity
@@ -48,9 +49,14 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::find($id);
+        if ($product) {
+            return view('single-product', ['product' => $product]);
+        }else {
+            abort('404');
+        }
     }
 
     /**
