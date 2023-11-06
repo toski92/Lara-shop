@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#example th{
+    text-align: start;
+}
+
+.my-button:hover {
+    color: red; /* Change the text color when hovering */
+}
