@@ -17,5 +17,8 @@ class Product extends Model
         'sale_price',
         'quantity',
     ];
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
     use HasFactory;
 }
